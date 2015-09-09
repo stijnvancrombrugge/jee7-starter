@@ -2,6 +2,12 @@ package com.realdolmen.course;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by SVCAX33 on 9/09/2015.
@@ -14,21 +20,44 @@ public class Passenger implements Serializable {
     @GeneratedValue()
     private Integer id;
 
-    @Basic(optional=false)
+    @Basic(optional = false)
 
+    @Column(nullable = false, updatable = false)
     private String ssn;
+
+    @Column(length = 50)
     private String firstName;
+
+    @Column(length = 50)
     private String lastName;
+    private byte[] picture;
+
+    @Column(nullable=false, updatable=false)
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
+
+    @Transient
+    private int age;
+
+    @Enumerated()
+    @Column(nullable=false)
+    private PassengerType passengerType;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastFlight;
 
     private Integer frequentFlyerMiles;
 
     protected Passenger(){}
 
-    public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles){
+    public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles, Date dateOfBirth, PassengerType type){
         this.ssn = ssn;
         this.firstName = firstName;
         this.lastName = lastName;
         this.frequentFlyerMiles = frequentFlyerMiles;
+        this.dateOfBirth = dateOfBirth;
+        this.passengerType = type;
+        lastFlight = Timestamp.from(Instant.now());
     }
 
     public Integer getId() {
@@ -66,4 +95,52 @@ public class Passenger implements Serializable {
     public void setFrequentFlyerMiles(Integer frequentFlyerMiles) {
         this.frequentFlyerMiles = frequentFlyerMiles;
     }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public int getAge() {
+        Calendar dob = Calendar.getInstance();
+        dob.setTime(dateOfBirth);
+        Calendar today = Calendar.getInstance();
+        int agecalc = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if(today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
+        agecalc--;
+        return agecalc;
+    }
+
+    public void setAge(int age) {
+        this.age = 10;
+    }
+
+    public PassengerType getPassengerType() {
+        return passengerType;
+    }
+
+    public void setPassengerType(PassengerType passengerType) {
+        this.passengerType = passengerType;
+    }
+
+    public Date getLastFlight() {
+        return lastFlight;
+    }
+
+    public void setLastFlight(Date lastFlight) {
+        this.lastFlight = lastFlight;
+    }
 }
+
+
