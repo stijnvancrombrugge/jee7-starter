@@ -1,6 +1,7 @@
 package com.realdolmen.course;
 
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 
 /**
  * Created by SVCAX33 on 9/09/2015.
@@ -8,7 +9,7 @@ import javax.persistence.Embeddable;
 
 
 @Embeddable
-public class PassengerId {
+public class PassengerId implements Serializable {
     private String ssn;
     private String lastName;
 
