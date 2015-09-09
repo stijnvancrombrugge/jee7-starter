@@ -9,9 +9,9 @@ public class Book implements Serializable {
         fiction, fantasy, thriller, biography
     }
 
-    @Id
+    @Id   // JPA gaat rechtstreeks injecteren hiermee ipv setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id;    // Bij int default op 0 gezet, nu kan hij null zijn
 
     @Basic(optional = false)
     private String title;

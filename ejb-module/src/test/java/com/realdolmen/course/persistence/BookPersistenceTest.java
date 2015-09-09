@@ -1,5 +1,7 @@
 package com.realdolmen.course.persistence;
 
+// Korte testen met duidelijke naam
+
 import com.realdolmen.course.domain.Book;
 import com.realdolmen.course.persistence.DataSetPersistenceTest;
 import org.junit.Rule;
