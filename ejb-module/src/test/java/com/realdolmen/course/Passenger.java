@@ -6,8 +6,10 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by SVCAX33 on 9/09/2015.
@@ -48,9 +50,22 @@ public class Passenger implements Serializable {
 
     private Integer frequentFlyerMiles;
 
+    @Embedded
+    @Column(nullable=false)
+    private Address address;
+
+    @Embedded
+    @Column(nullable=true)
+    private CreditCard creditCard;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name="preferences")
+    @Column(name="preferences")
+    private List<String> preferences = new ArrayList<String>();
+
     protected Passenger(){}
 
-    public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles, Date dateOfBirth, PassengerType type){
+    public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles, Date dateOfBirth, PassengerType type, String street1, String street2, String city, String state, String zipcode, String country){
         this.ssn = ssn;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,6 +73,7 @@ public class Passenger implements Serializable {
         this.dateOfBirth = dateOfBirth;
         this.passengerType = type;
         lastFlight = Timestamp.from(Instant.now());
+        address = new Address(street1, street2, city, state, zipcode, country);
     }
 
     public Integer getId() {
@@ -141,6 +157,31 @@ public class Passenger implements Serializable {
     public void setLastFlight(Date lastFlight) {
         this.lastFlight = lastFlight;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    public List<String> getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(List<String> preferences) {
+        this.preferences = preferences;
+    }
+
 }
 
 

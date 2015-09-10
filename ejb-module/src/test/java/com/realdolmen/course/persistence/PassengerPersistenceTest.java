@@ -21,14 +21,14 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void PassengerCanBePersisted() throws Exception {
-        Passenger passenger = new Passenger("test","Tim","De Haes", 10, new Date(), PassengerType.OCCASIONAL);
+        Passenger passenger = new Passenger("test","Tim","De Haes", 10, new Date(), PassengerType.OCCASIONAL, "test", "test","test","test","test","test");
         entityManager().persist(passenger);
         assertNotNull(passenger.getId());
     }
 
     @Test(expected = PersistenceException.class)
     public void PassengerCanNotBePersistedWithoutFirstName() throws Exception {
-        Passenger passenger = new Passenger(null, "test", "test", 4, new Date(), PassengerType.OCCASIONAL);
+        Passenger passenger = new Passenger(null, "test", "test", 4, new Date(), PassengerType.OCCASIONAL,"test","test","test","test","test", "test");
         entityManager().persist(passenger);
     }
 
