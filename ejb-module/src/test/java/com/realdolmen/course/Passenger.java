@@ -63,6 +63,11 @@ public class Passenger implements Serializable {
     @Column(name="preferences")
     private List<String> preferences = new ArrayList<String>();
 
+
+    @OneToMany
+    private List<Ticket> ticketList;
+
+
     protected Passenger(){}
 
     public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles, Date dateOfBirth, PassengerType type, String street1, String street2, String city, String state, String zipcode, String country){
@@ -182,6 +187,13 @@ public class Passenger implements Serializable {
         this.preferences = preferences;
     }
 
+    public List<Ticket> getTicketList() {
+        return ticketList;
+    }
+
+    public void setTicketList(List<Ticket> ticketList) {
+        this.ticketList = ticketList;
+    }
 }
 
 
