@@ -18,7 +18,7 @@ public class Ticket {
     @ManyToOne
     private Flight flight;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Passenger passenger;
 
     protected Ticket(){}

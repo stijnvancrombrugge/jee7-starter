@@ -25,6 +25,8 @@ public class FlightTest extends DataSetPersistenceTest {
         Flight f = new InternationalFlight("3", new Date(), new Date(), "Sabena", true, "test");
         entityManager().persist(f);
 
+        // persist, flush: alle transacties doorvoeren, clear: alles detachen uit cache halen, and find beter
+
         assertNotNull(((InternationalFlight)entityManager().find(Flight.class, 1)).getBlacklisted());
     }
 }
