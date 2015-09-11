@@ -6,3 +6,4 @@ package com.realdolmen.course;
 public enum CreditCardType {
     VISA, MASTER, AMEX
 }
+

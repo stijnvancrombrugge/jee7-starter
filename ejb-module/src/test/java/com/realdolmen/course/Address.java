@@ -1,6 +1,9 @@
 package com.realdolmen.course;
 
+import org.hibernate.annotations.OptimisticLock;
+
 import javax.persistence.Embeddable;
+import java.util.concurrent.locks.ReadWriteLock;
 
 /**
  * Created by SVCAX33 on 10/09/2015.
@@ -25,6 +28,7 @@ public class Address {
         this.state = state;
         this.zipcode = zipcode;
         this.country = country;
+
     }
 
     public String getStreet1() {

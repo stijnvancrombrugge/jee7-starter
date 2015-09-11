@@ -15,8 +15,24 @@ import java.util.List;
  * Created by SVCAX33 on 9/09/2015.
  */
 
+@EntityListeners(PassengerListener.class)
 @Entity
+@NamedQueries({
+        @NamedQuery(name=Passenger.FIND_ALL, query = "select c from Passenger c"),
+        @NamedQuery(name=Passenger.FIND_ALL_LASTNAMES, query="select c.lastName from Passenger c"),
+        @NamedQuery(name=Passenger.TOTAL_FREQUENT_FLYERMILES, query="select sum(c.frequentFlyerMiles) from Passenger c"),
+        @NamedQuery(name=Passenger.FIND_TICKETS_BY_PASSENGERID,query="select c.ticketList from Passenger c where c.id = :searchid"),
+        @NamedQuery(name=Passenger.DELETE_ALL,query="delete from Passenger")
+
+})
 public class Passenger implements Serializable {
+
+    public static final String FIND_ALL = "Passenger.findAll";
+    public static final String FIND_ALL_LASTNAMES = "Passenger.findAllLastnames";
+    public static final String TOTAL_FREQUENT_FLYERMILES = "Passenger.totalFrequentFlyermiles";
+    public static final String FIND_TICKETS_BY_PASSENGERID = "Passenger.findTicketsByPassengerid";
+    public static final String DELETE_ALL = "Passenger.deleteAll";
+
 
     @Id
     @GeneratedValue()
@@ -47,6 +63,9 @@ public class Passenger implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastFlight;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateLastUpdated;
 
     private Integer frequentFlyerMiles;
 
@@ -193,6 +212,14 @@ public class Passenger implements Serializable {
 
     public void setTicketList(List<Ticket> ticketList) {
         this.ticketList = ticketList;
+    }
+
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
+    }
+
+    public void setDateLastUpdated(Date dateLastUpdated) {
+        this.dateLastUpdated = dateLastUpdated;
     }
 }
 
