@@ -1,16 +1,16 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by SVCAX33 on 10/09/2015.
  */
 
 @Entity
-public class DomesticFlight extends Flight {
+public class DomesticFlight extends Flight{
 
     private String airlineCompany;
 

@@ -1,8 +1,8 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
-import org.hibernate.annotations.OptimisticLock;
 
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.concurrent.locks.ReadWriteLock;
 
 /**
@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReadWriteLock;
  */
 
  @Embeddable
-public class Address {
+public class Address implements Serializable {
     private String street1;
     private String street2;
     private String city;

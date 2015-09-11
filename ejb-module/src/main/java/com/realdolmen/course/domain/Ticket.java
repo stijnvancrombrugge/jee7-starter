@@ -1,14 +1,14 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * Created by SVCAX33 on 10/09/2015.
  */
 
 @Entity
-public class Ticket {
+public class Ticket implements Serializable {
     private double price;
 
     @Id

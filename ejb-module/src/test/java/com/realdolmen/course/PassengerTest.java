@@ -1,11 +1,11 @@
 package com.realdolmen.course;
 
+import com.realdolmen.course.domain.Passenger;
+import com.realdolmen.course.domain.PassengerType;
 import com.realdolmen.course.persistence.DataSetPersistenceTest;
-import org.apache.poi.ss.formula.functions.T;
 import org.junit.Test;
 
 import javax.persistence.TypedQuery;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 

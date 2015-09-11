@@ -1,4 +1,4 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
 import javax.persistence.*;
 import java.util.Date;

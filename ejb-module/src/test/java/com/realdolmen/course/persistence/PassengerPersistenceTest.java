@@ -1,15 +1,13 @@
 package com.realdolmen.course.persistence;
 
-import com.realdolmen.course.Passenger;
-import com.realdolmen.course.PassengerType;
+import com.realdolmen.course.domain.Passenger;
+import com.realdolmen.course.domain.PassengerType;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
-import java.time.Instant;
 import java.util.Date;
 
 /**

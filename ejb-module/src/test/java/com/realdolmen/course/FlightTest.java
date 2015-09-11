@@ -1,8 +1,8 @@
 package com.realdolmen.course;
 
-import com.realdolmen.course.domain.Book;
+import com.realdolmen.course.domain.Flight;
+import com.realdolmen.course.domain.InternationalFlight;
 import com.realdolmen.course.persistence.DataSetPersistenceTest;
-import com.realdolmen.course.persistence.PersistenceTest;
 import org.junit.Test;
 
 import java.util.Date;

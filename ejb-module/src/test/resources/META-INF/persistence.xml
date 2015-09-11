@@ -46,6 +46,19 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>com.realdolmen.course.domain.Book</class>
+        <class>com.realdolmen.course.domain.AbstractEntity</class>
+        <class>com.realdolmen.course.domain.Address</class>
+        <class>com.realdolmen.course.domain.CreditCard</class>
+        <class>com.realdolmen.course.domain.CreditCardType</class>
+        <class>com.realdolmen.course.domain.DomesticFlight</class>
+        <class>com.realdolmen.course.domain.Flight</class>
+        <class>com.realdolmen.course.domain.InternationalFlight</class>
+        <class>com.realdolmen.course.domain.PassengerListener</class>
+        <class>com.realdolmen.course.domain.Passenger</class>
+        <class>com.realdolmen.course.domain.PassengerType</class>
+        <class>com.realdolmen.course.domain.Ticket</class>
+
+
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

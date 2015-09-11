@@ -1,11 +1,9 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;

@@ -1,15 +1,15 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Enumerated;
+import java.io.Serializable;
 
 /**
  * Created by SVCAX33 on 10/09/2015.
  */
 
 @Embeddable
-public class CreditCard {
+public class CreditCard implements Serializable {
 
     private String number;
     private String expiryDate;

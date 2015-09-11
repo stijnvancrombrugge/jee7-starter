@@ -1,8 +1,8 @@
-package com.realdolmen.course;
+package com.realdolmen.course.domain;
 
-import org.hibernate.Transaction;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 
-public class PassengerListener {
+public class PassengerListener implements Serializable{
 
     @PrePersist
     @PreUpdate
