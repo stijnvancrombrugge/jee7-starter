@@ -42,7 +42,8 @@ public class PassengerTest extends DataSetPersistenceTest {
     @Test
     public void getTickesByPassengeridTest() throws Exception{
         makeNewPassenger();
-        //TypedQuery<List<Ticket>> query = entityManager().createNamedQuery(Passenger.FIND_TICKETS_BY_PASSENGERID, List<>.class).setParameter("searchid", 1);
+        makeNewPassenger();
+        //ypedQuery<List<Ticket>> query = entityManager().createNamedQuery(Passenger.FIND_TICKETS_BY_PASSENGERID, List<>.class).setParameter("searchid", 1);
         //List<List<Ticket>> totalFlyerMiles = query.getResultList();
     }
 
