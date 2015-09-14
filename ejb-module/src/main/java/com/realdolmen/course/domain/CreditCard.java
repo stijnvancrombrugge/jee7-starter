@@ -18,6 +18,8 @@ public class CreditCard implements Serializable {
     @Enumerated()
     private CreditCardType creditCardType;
 
+    public CreditCard (){}
+
     public CreditCard(String number, String expiryDate, Integer controlNumber, CreditCardType creditCardType) {
         this.number = number;
         this.expiryDate = expiryDate;

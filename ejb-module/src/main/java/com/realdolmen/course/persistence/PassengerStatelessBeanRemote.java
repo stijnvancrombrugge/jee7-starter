@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 @Remote
-public interface PassengerBeanRemote {
+public interface PassengerStatelessBeanRemote {
     List<Passenger> findPassengers();
     Passenger findPassengersById(int id);
     Passenger createPassenger(Passenger passenger);

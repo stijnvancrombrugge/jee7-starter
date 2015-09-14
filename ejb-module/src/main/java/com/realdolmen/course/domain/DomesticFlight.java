@@ -14,7 +14,7 @@ public class DomesticFlight extends Flight{
 
     private String airlineCompany;
 
-    @Column(name = "flight_references")
+    @Column(name = "flight_preferences")
     private String references;
 
     public DomesticFlight(String number, Date departureTime, Date arrivalTime, String airlineCompany, String references) {

@@ -212,6 +212,10 @@ public class Passenger implements Serializable {
         this.ticketList = ticketList;
     }
 
+    public void addTicket(Ticket ticket) {
+        ticketList.add(ticket);
+    }
+
     public Date getDateLastUpdated() {
         return dateLastUpdated;
     }

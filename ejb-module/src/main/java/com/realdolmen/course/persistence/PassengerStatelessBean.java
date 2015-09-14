@@ -14,7 +14,7 @@ import java.util.List;
 
 @Stateless
 @LocalBean
-public class PassengerBean implements PassengerBeanRemote {
+public class PassengerStatelessBean implements PassengerStatelessBeanRemote {
     @PersistenceContext
 
     private EntityManager em;
