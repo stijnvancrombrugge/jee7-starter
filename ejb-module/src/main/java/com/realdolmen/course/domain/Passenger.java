@@ -33,7 +33,7 @@ public class Passenger implements Serializable {
 
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Basic(optional = false)
