@@ -37,9 +37,7 @@ public class TextMessageConsumer implements MessageListener {
                     ticket.setPrice(Integer.parseInt(splittedMessage[1]));
                     em.persist(ticket);
                 }
-
             }
-
 
         } catch (JMSException e) {
             throw new RuntimeException("Deal with this", e);

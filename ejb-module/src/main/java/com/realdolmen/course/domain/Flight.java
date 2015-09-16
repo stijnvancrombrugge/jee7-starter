@@ -8,7 +8,15 @@ import java.util.Date;
  */
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name=Flight.FIND_ALL, query = "select c from Flight c"),
+        @NamedQuery(name=Flight.FIND_BY_ID, query = "select c from Flight c where c.id = :id")
+})
+
 public abstract class Flight extends AbstractEntity {
+
+    public static final String FIND_ALL = "Flight.findAll";
+    public static final String FIND_BY_ID = "Flight.findById";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="pageTitle">Passenger form</ui:define>
+    <ui:define name="pageContent">
+        <h1>Passengerform:</h1>
+        <h:form>
+            <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+                <p:outputLabel for="basic" value="Type:" />
+                <p:selectOneMenu id="basic" value="#{passengerController.type}">
+                    <f:selectItem itemLabel="Occasional" itemValue="OCCASIONAL" />
+                    <f:selectItem itemLabel="Regular" itemValue="REGULAR" />
+                </p:selectOneMenu><h:message for="basic"/>
+                <p:outputLabel for="fn" value="Firstname:"/>
+                <p:inputText id="fn" value="#{passengerController.firstName}" requiredMessage="Please enter firstname"/><h:message for="fn"/>
+                <p:outputLabel for="ln" value="Lastname:"/>
+                <p:inputText id="ln" value="#{passengerController.lastName}"/><h:message for="ln"/>
+                <p:outputLabel for="ssn" value="Ssn:"/>
+                <p:inputText id="ssn" value="#{passengerController.ssn}"/><h:message for="ssn"/>
+                <p:outputLabel for="ffm" value="Frequentflyermiles:"/>
+                <p:inputText id="ffm" value="#{passengerController.frequentFlyerMiles}"/><h:message for="ffm"/>
+                <p:outputLabel for="dob" value="Birthdate:"/>
+                <p:inputText id="dob" value="#{passengerController.dateOfBirth}">
+                    <f:convertDateTime pattern="d-M-yyyy" />
+                </p:inputText><h:message for="dob"/>
+                <p:outputLabel for="city" value="City:"/>
+                <p:inputText id="city" value="#{passengerController.city}"/><h:message for="city"/>
+                <p:outputLabel for="country" value="Country:"/>
+                <p:inputText id="country" value="#{passengerController.country}"/><h:message for="country"/>
+                <p:outputLabel for="zc" value="Zipcode:"/>
+                <p:inputText id="zc" value="#{passengerController.zipcode}"/><h:message for="zc"/>
+                <p:outputLabel for="state" value="State:"/>
+                <p:inputText id="state" value="#{passengerController.state}"/><h:message for="state"/>
+                <p:outputLabel for="s1" value="Street 1:"/>
+                <p:inputText id="s1" value="#{passengerController.street1}"/><h:message for="s1"/>
+                <p:outputLabel for="s2" value="Street 2:"/>
+                <p:inputText id="s2" value="#{passengerController.street2}"/><h:message for="s2"/>
+
+                <p:commandButton action="#{conversationController.navigateToTicket}" value="Submit form"/>
+            </h:panelGrid>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+
+</html>

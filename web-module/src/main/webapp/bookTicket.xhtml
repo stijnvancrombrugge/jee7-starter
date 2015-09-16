@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: SVCAX33
+  Date: 15/09/2015
+  Time: 15:19
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="template.xhtml">
+<ui:define name="pageTitle">Ticket form</ui:define>
+<ui:define name="pageContent">
+    <h1>Book a ticket:</h1>
+    <h:form>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+            <p:outputLabel value="Passenger:" />
+            <p:outputLabel value="#{passengerController.firstName}"/>
+            <p:outputLabel value="Price:"/>
+            <p:inputText value="#{passengerController.price}"/>
+            <p:outputLabel value="Flight:"/>
+            <p:selectOneMenu id="basic" value="#{passengerController.flight}">
+                <f:selectItems value="#{flightController.allFlights}" var="flight" itemLabel="#{flight.number}" itemValue="#{flight}"/>
+            </p:selectOneMenu>
+            <p:commandButton action="#{conversationController.navigateToConfirm}" value="Book a ticket"/>
+        </h:panelGrid>
+    </h:form>
+
+
+</ui:define>
+</ui:composition>
+</html>

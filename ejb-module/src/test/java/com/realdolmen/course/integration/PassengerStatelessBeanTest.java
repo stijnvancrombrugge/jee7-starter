@@ -4,11 +4,12 @@ import com.realdolmen.course.persistence.PassengerStatelessBeanRemote;
 import org.junit.Test;
 
 import javax.naming.NamingException;
+import java.io.Serializable;
 
 /**
  * Created by SVCAX33 on 11/09/2015.
  */
-public class PassengerStatelessBeanTest extends RemoteIntegrationTest {
+public class PassengerStatelessBeanTest extends RemoteIntegrationTest implements Serializable{
 
     @Test
     public void testPassengerBeanFindAll() throws NamingException{

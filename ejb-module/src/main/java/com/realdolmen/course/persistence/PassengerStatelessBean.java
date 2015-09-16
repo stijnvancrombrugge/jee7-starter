@@ -1,6 +1,8 @@
 package com.realdolmen.course.persistence;
 
 import com.realdolmen.course.domain.Passenger;
+import com.realdolmen.course.domain.Ticket;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -24,8 +26,9 @@ public class PassengerStatelessBean implements PassengerStatelessBeanRemote {
         return query.getResultList();
     }
 
+
     public Passenger findPassengersById(int id){
-        return em.find(Passenger.class,id);
+        return em.find(Passenger.class, id);
     }
 
     public Passenger createPassenger(Passenger passenger) {
@@ -33,11 +36,15 @@ public class PassengerStatelessBean implements PassengerStatelessBeanRemote {
         return passenger;
     }
 
-    public void deletePassenger(Passenger passenger){
-        em.remove(em.merge(passenger));
+    public void deletePassenger(int passengerId){
+        em.remove(em.getReference(Passenger.class, passengerId));
     }
 
     public Passenger updatePassenger(Passenger passenger){
         return em.merge(passenger);
+    }
+
+    public void bookTicket(Ticket ticket){
+        em.persist(ticket);
     }
 }

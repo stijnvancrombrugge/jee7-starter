@@ -3,5 +3,6 @@
     <book id="2000" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
     <book id="3000" author="Bram Stoker" title="Dracula" genre="fiction"/>
     <passenger id="10" ssn="test" firstName="Stijn" lastName="VC" frequentFlyerMiles="100" dateOfBirth="1992-12-12" passengerType="0" street1="test" street2="test" city="test" state="test" zipcode="test" country="test"/>
+    <flight DTYPE="0" version="1" id="1" number="454" departureTime="1992-12-30" arrivalTime="1993-12-28" airlineCompany="sabena" flight_preferences="test"/>
     <ticket id="1000" price="150"/>
 </dataset>

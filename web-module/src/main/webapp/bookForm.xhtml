@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: SVCAX33
+  Date: 15/09/2015
+  Time: 15:19
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+
+<h:body>
+    <h1>Bookform:</h1>
+    <h:form>
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+    <p:outputLabel for="basic" value="Genre:" />
+    <p:selectOneMenu id="basic" value="#{bookController.genre}">
+        <f:selectItem itemLabel="fiction" itemValue="fiction" />
+        <f:selectItem itemLabel="thriller" itemValue="thriller" />
+        <f:selectItem itemLabel="fantasy" itemValue="fantasy" />
+        <f:selectItem itemLabel="biography" itemValue="biography" />
+    </p:selectOneMenu>
+        <p:outputLabel value="Title"></p:outputLabel>
+        <p:inputText value="#{bookController.title}"></p:inputText>
+        <p:outputLabel value="Author"></p:outputLabel>
+        <p:inputText value="#{bookController.author}"></p:inputText>
+        <p:commandButton action="#{bookController.createBook()}" value="Submit form"></p:commandButton>
+    </h:panelGrid>
+    </h:form>
+</h:body>
+
+</html>

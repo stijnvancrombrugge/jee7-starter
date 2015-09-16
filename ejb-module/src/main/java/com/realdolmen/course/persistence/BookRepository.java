@@ -14,6 +14,10 @@ public class BookRepository implements RemoteBookRepository {
     @PersistenceContext
     EntityManager entityManager;
 
+    public void createBook(Book book){
+        entityManager.persist(book);
+    }
+
     public List<Book> findAll() {
         return entityManager.createQuery("select b from Book b", Book.class).getResultList();
     }

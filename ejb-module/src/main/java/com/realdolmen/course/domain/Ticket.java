@@ -8,7 +8,10 @@ import java.io.Serializable;
  */
 
 @Entity
+@NamedQuery(name=Ticket.FIND_ALL, query = "select c from Ticket c")
 public class Ticket implements Serializable {
+
+    public static final String FIND_ALL = "Ticket.findAll";
     private double price;
 
     @Id
