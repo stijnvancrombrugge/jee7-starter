@@ -14,7 +14,7 @@ import java.util.List;
 public interface PassengerStatelessBeanRemote extends Serializable {
     List<Passenger> findPassengers();
     Passenger findPassengersById(int id);
-    Passenger createPassenger(Passenger passenger);
+    void createPassenger(Passenger passenger);
     void deletePassenger(int passengerId);
     Passenger updatePassenger(Passenger passenger);
 }

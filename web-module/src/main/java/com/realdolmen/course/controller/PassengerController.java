@@ -1,9 +1,6 @@
 package com.realdolmen.course.controller;
 
-import com.realdolmen.course.domain.Flight;
-import com.realdolmen.course.domain.Passenger;
-import com.realdolmen.course.domain.PassengerType;
-import com.realdolmen.course.domain.Ticket;
+import com.realdolmen.course.domain.*;
 import com.realdolmen.course.persistence.BookRepository;
 import com.realdolmen.course.persistence.FlightBean;
 import com.realdolmen.course.persistence.PassengerStatelessBean;
@@ -13,6 +10,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -31,6 +30,9 @@ public class PassengerController implements Serializable{
     @Inject
     PassengerStatelessBean passengerBean;
 
+    @PersistenceContext
+    EntityManager em;
+
     @NotNull @Size(min=1) private String country;
     @NotNull private String ssn;
     @NotNull @Size(min=1) private String firstName;
@@ -44,19 +46,11 @@ public class PassengerController implements Serializable{
     @NotNull private String state;
     @NotNull private String zipcode;
     @NotNull private int price;
-    private Flight flight;
-    private Passenger passenger;
+    private int flightId;
 
     public List<Passenger> getAllPassengers() {
         return passengerBean.findPassengers();
     }
-
-    public String addPassenger(){
-        passenger = new Passenger(ssn, firstName, lastName, frequentFlyerMiles, dateOfBirth, type, street1, street2, city, state, zipcode, country);
-        passengerBean.createPassenger(passenger);
-        return "bookTicket";
-    }
-
 
     public void remove(int passengerId) {
         passengerBean.deletePassenger(passengerId);
@@ -166,19 +160,20 @@ public class PassengerController implements Serializable{
         return price;
     }
 
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
     }
 
-    public Flight getFlight() {
-        return flight;
+    public int getFlightId() {
+        return flightId;
     }
 
     public void bookTicket(@Observes String event){
-        System.out.println("Booking a ticket");
         Ticket ticket = new Ticket(price);
-        ticket.setFlight(flight);
+        ticket.setFlight(em.find(Flight.class, flightId));
+        Passenger passenger = new Passenger(ssn, firstName, lastName, frequentFlyerMiles, dateOfBirth, type, street1, street2, city, state, zipcode, country);
         ticket.setPassenger(passenger);
         passengerBean.bookTicket(ticket);
+
     }
 }

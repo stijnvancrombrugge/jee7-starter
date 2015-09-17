@@ -17,8 +17,8 @@ import java.util.List;
 @Stateless
 @LocalBean
 public class PassengerStatelessBean implements PassengerStatelessBeanRemote {
-    @PersistenceContext
 
+    @PersistenceContext
     private EntityManager em;
 
     public List<Passenger> findPassengers() {
@@ -31,9 +31,8 @@ public class PassengerStatelessBean implements PassengerStatelessBeanRemote {
         return em.find(Passenger.class, id);
     }
 
-    public Passenger createPassenger(Passenger passenger) {
+    public void createPassenger(Passenger passenger) {
         em.persist(passenger);
-        return passenger;
     }
 
     public void deletePassenger(int passengerId){

@@ -30,7 +30,6 @@ public class ConversationController implements Serializable {
     }
 
     public String navigateToTicket(){
-        passengerController.addPassenger();
         return "bookTicket";
     }
 
